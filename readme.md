@@ -54,3 +54,20 @@ production 生产
   
     
 ```
+
+
+```text
+
+    代码分层
+    services 服务层
+    
+    models  模型层 
+
+    路由
+    userLog  user-logs
+    
+   
+    Controller/client 客户端 
+    Controller/users  用户端 
+
+```
