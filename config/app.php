@@ -190,7 +190,7 @@ return [
         Toplan\PhpSms\PhpSmsServiceProvider::class,
         Toplan\Sms\SmsManagerServiceProvider::class,
 
-
+        browner12\helpers\HelperServiceProvider::class,
     ],
 
     /*
