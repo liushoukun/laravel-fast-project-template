@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
+        "encore/laravel-admin": "^1.7",
         "fideloper/proxy": "^4.0",
         "laravel/dusk": "^5.1",
         "laravel/framework": "5.8.*",
@@ -63,6 +64,9 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php artisan jwt:secret --force --ansi"
+        ],
+        "post-install-cmd": [
+          "@php artisan vendor:publish --tag=laravel-admin-assets --force"
         ]
     },
     "repositories": {
