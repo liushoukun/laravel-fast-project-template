@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+
 use Laravel\Dusk\DuskServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -17,6 +18,11 @@ class AppServiceProvider extends ServiceProvider
     {
         if ($this->app->runningUnitTests()) {
             Schema::defaultStringLength(191);
+        }
+
+        $table = config('admin.extensions.config.table', 'admin_config');
+        if (Schema::hasTable($table)) {
+            \Encore\Admin\Config\Config::load();
         }
     }
 
