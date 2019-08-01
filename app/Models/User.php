@@ -1,9 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Notifications\VerifyEmail;
 use App\Notifications\ResetPassword;
+use Laravel\Passport\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -12,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
 {
     use Notifiable;
-
+    use HasApiTokens;
     /**
      * The attributes that are mass assignable.
      *
@@ -56,7 +57,7 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
      */
     public function getPhotoUrlAttribute()
     {
-        return 'https://www.gravatar.com/avatar/'.md5(strtolower($this->email)).'.jpg?s=200&d=mm';
+        return 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '.jpg?s=200&d=mm';
     }
 
     /**
@@ -72,7 +73,7 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     /**
      * Send the password reset notification.
      *
-     * @param  string  $token
+     * @param  string $token
      * @return void
      */
     public function sendPasswordResetNotification($token)

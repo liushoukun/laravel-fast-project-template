@@ -26,6 +26,10 @@
    
    php artisan admin:import config
    
+   
+  
+   php artisan passport:keys
+   
 
     
 ```

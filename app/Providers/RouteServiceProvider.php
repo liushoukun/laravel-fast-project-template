@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Laravel\Passport\Passport;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,14 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+
+        Passport::routes();
+
+
+        Passport::tokensExpireIn(now()->addDays(15));
+
+        Passport::refreshTokensExpireIn(now()->addDays(30));
     }
 
     /**
@@ -65,9 +74,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
+        Route::namespace($this->namespace)
              ->group(base_path('routes/api.php'));
     }
 }

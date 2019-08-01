@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Users\Auth;
 
+use App\Http\Controllers\Users\BaseController;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Exceptions\VerifyEmailException;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+class LoginController extends BaseController
 {
     use AuthenticatesUsers;
 
@@ -97,4 +98,11 @@ class LoginController extends Controller
     {
         $this->guard()->logout();
     }
+
+    protected function guard()
+    {
+        return Auth::guard('api');
+    }
+
+
 }

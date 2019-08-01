@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Users\Auth;
 
+use App\Http\Controllers\Users\BaseController;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
-use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Validation\ValidationException;
 
-class VerificationController extends Controller
+class VerificationController extends BaseController
 {
     /**
      * Create a new controller instance.

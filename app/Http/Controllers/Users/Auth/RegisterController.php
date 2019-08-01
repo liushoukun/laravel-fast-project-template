@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Users\Auth;
 
+use App\Http\Controllers\Users\BaseController;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
+class RegisterController extends BaseController
 {
     use RegistersUsers;
 

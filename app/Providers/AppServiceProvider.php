@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 
+use App\Exceptions\AppRuntimeException;
 use Laravel\Dusk\DuskServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -24,6 +25,14 @@ class AppServiceProvider extends ServiceProvider
         if (Schema::hasTable($table)) {
             \Encore\Admin\Config\Config::load();
         }
+
+
+        app('Dingo\Api\Exception\Handler')->register(function (\Throwable $exception) {
+            if ($exception instanceof AppRuntimeException) {
+               return $exception::render(request(), $exception);
+            }
+        });
+
     }
 
     /**

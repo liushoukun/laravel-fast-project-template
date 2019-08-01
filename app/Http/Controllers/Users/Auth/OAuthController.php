@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Users\Auth;
 
+use App\Http\Controllers\Users\BaseController;
 use App\User;
 use App\OAuthProvider;
-use App\Http\Controllers\Controller;
 use App\Exceptions\EmailTakenException;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class OAuthController extends Controller
+class OAuthController extends BaseController
 {
     use AuthenticatesUsers;
 

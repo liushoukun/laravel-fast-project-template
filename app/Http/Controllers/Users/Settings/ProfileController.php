@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Settings;
+namespace App\Http\Controllers\Users\Settings;
 
+use App\Http\Controllers\Users\BaseController;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class ProfileController extends Controller
+class ProfileController extends BaseController
 {
     /**
      * Update the user's profile information.
