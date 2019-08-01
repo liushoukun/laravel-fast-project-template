@@ -28,9 +28,12 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot();
 
+        $this->oauth();
+    }
 
+    protected function oauth()
+    {
         Passport::routes();
-
 
         Passport::tokensExpireIn(now()->addDays(15));
 
@@ -44,7 +47,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiRoutes();
+        // 面向用户
+        $this->mapUsersRoutes();
+        // 面向客户端
+        $this->mapClientsRoutes();
 
         $this->mapWebRoutes();
 
@@ -61,20 +67,21 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
-    /**
-     * Define the "api" routes for the application.
-     *
-     * These routes are typically stateless.
-     *
-     * @return void
-     */
-    protected function mapApiRoutes()
+
+    protected function mapUsersRoutes()
     {
         Route::namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->group(base_path('routes/user.php'));
+    }
+
+
+    protected function mapClientsRoutes()
+    {
+        Route::namespace($this->namespace)
+            ->group(base_path('routes/client.php'));
     }
 }

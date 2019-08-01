@@ -21,18 +21,9 @@ class AppServiceProvider extends ServiceProvider
             Schema::defaultStringLength(191);
         }
 
-        $table = config('admin.extensions.config.table', 'admin_config');
-        if (Schema::hasTable($table)) {
-            \Encore\Admin\Config\Config::load();
-        }
+        $this->config();
 
-
-        app('Dingo\Api\Exception\Handler')->register(function (\Throwable $exception) {
-            if ($exception instanceof AppRuntimeException) {
-               return $exception::render(request(), $exception);
-            }
-        });
-
+        $this->api();
     }
 
     /**
@@ -46,5 +37,22 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(DuskServiceProvider::class);
 
         }
+    }
+
+    protected function config()
+    {
+        $table = config('admin.extensions.config.table', 'admin_config');
+        if (Schema::hasTable($table)) {
+            \Encore\Admin\Config\Config::load();
+        }
+    }
+
+    protected function api()
+    {
+        app('Dingo\Api\Exception\Handler')->register(function (\Throwable $exception) {
+            if ($exception instanceof AppRuntimeException) {
+                return $exception::render(request(), $exception);
+            }
+        });
     }
 }
