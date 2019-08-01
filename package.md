@@ -18,6 +18,8 @@ guzzlehttp/guzzle  curl
 
 torann/geoip   IP  获取地理名称
 
+zhuzhichao/ip-location-zh
+
 toplan/laravel-sms  发送短信
 
 appstract/laravel-opcache  opcache
