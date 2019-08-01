@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Users\Auth;
 
 use App\Http\Controllers\Users\BaseController;
-use App\User;
+use App\Models\User;
 use App\OAuthProvider;
 use App\Exceptions\EmailTakenException;
 use Laravel\Socialite\Facades\Socialite;
@@ -62,7 +62,7 @@ class OAuthController extends BaseController
 
     /**
      * @param  string $provider
-     * @param  \Laravel\Socialite\Contracts\User $sUser
+     * @param  \Laravel\Socialite\Contracts\User $user
      * @return \App\User|false
      */
     protected function findOrCreateUser($provider, $user)
