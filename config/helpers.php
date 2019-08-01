@@ -40,7 +40,7 @@ return [
     |
     */
 
-    'directory' => 'Helpers',
+    'directory' => 'Helpers/Functions',
 
     /*
     |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ return [
     |
     */
 
-    'default_timezone' => 'america/chicago',
+    'default_timezone' => 'Asia/Shanghai',
 
     /*
     |--------------------------------------------------------------------------
