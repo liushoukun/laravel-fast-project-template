@@ -19,8 +19,8 @@ class HomeController extends BaseController
     public function index(Request $request)
     {
 
-        throw new UserException(1,'333');
-      return  $this->success();
+//        throw new UserException(1, '333');
+        return $this->success();
     }
 
 }

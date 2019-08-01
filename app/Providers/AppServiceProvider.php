@@ -23,7 +23,6 @@ class AppServiceProvider extends ServiceProvider
 
         $this->config();
 
-        $this->api();
     }
 
     /**
@@ -47,12 +46,4 @@ class AppServiceProvider extends ServiceProvider
         }
     }
 
-    protected function api()
-    {
-        app('Dingo\Api\Exception\Handler')->register(function (\Throwable $exception) {
-            if ($exception instanceof AppRuntimeException) {
-                return $exception::render(request(), $exception);
-            }
-        });
-    }
 }
