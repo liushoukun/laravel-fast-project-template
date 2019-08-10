@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "284cfb13e0c1cf841d86f9f11b5f5198",
+    "content-hash": "aa0e69f8103e6c68fba748cf05f9e26b",
     "packages": [
         {
             "name": "appstract/laravel-opcache",
@@ -7601,6 +7601,72 @@
                 "test"
             ],
             "time": "2016-01-20T08:20:44+00:00"
+        },
+        {
+            "name": "jeroen-g/laravel-packager",
+            "version": "V2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jeroen-G/laravel-packager.git",
+                "reference": "6f98c3d22eec2cfa9531c54a88276729118fc26e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jeroen-G/laravel-packager/zipball/6f98c3d22eec2cfa9531c54a88276729118fc26e",
+                "reference": "6f98c3d22eec2cfa9531c54a88276729118fc26e",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-zip": "*",
+                "guzzlehttp/guzzle": "~6",
+                "illuminate/support": "~5"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3",
+                "phpunit/phpunit": "~8"
+            },
+            "suggest": {
+                "sensiolabs/security-checker": "Required to use the security check command"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JeroenG\\Packager\\PackagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JeroenG\\Packager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "EUPL-1.1"
+            ],
+            "authors": [
+                {
+                    "name": "JeroenG",
+                    "email": "jeroengjeroeng@gmail.com",
+                    "homepage": "https://github.com/Jeroen-G"
+                }
+            ],
+            "description": "A cli tool for creating Laravel packages.",
+            "homepage": "https://github.com/Jeroen-G/laravel-packager",
+            "keywords": [
+                "Skeleton",
+                "laravel",
+                "package",
+                "packager"
+            ],
+            "time": "2019-06-20T06:50:41+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
